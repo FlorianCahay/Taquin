@@ -20,12 +20,12 @@ $(EXEC): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS) $(LDLIBS)
 
 $(BINDIR)/%.o: $(SRCDIR)/%.c $(INCDIR)/%.h
-	$(CC) -o $@ -c $< $(CFLAGS)
+	$(CC) -o $@ -g -c $< $(CFLAGS)
 
 clean:
 	rm -f $(OBJ)
 
 mrproper: clean
-	rm -f $(BINDIR)/$(EXEC)
+	rm -f $(EXEC)
 
 
