@@ -12,4 +12,8 @@ typedef struct plateau {
 	Carre bloc[NB_LIG][NB_COL];
 } Plateau;
 
+void init_board(Plateau *board);
+int isFinish(Plateau *board);
+int get_random_int(int a, int b);
+
 #endif
