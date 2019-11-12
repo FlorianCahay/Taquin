@@ -3,5 +3,6 @@
 
 void display_image(MLV_Image *image, int bloc_size, Plateau *board);
 void display_victory(int elapsed_time);
+void display_defeat(int elapsed_time)
 
 #endif

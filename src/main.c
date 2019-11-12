@@ -3,20 +3,13 @@
 #include "../include/events.h"
 #include "../include/view.h"
 
-/*
-AJouter nombre de coups 
-Proposer plusieurs images
-Vérifier si partie finie - OK
-*/
-
-
 int main(int argc, char const *argv[])
 {
 	MLV_Image *image;
 	MLV_Event event = MLV_NONE;
 	MLV_Button_state state;
 	MLV_Keyboard_button sym;
-	int win_width = 512, win_height = 560, x_click = 0, y_click = 0;
+	int win_width = 512, win_height = 560, x_click = 0, y_click = 0, victory = 0;
 	int img_width, img_height, x_select, y_select;
 
 	MLV_create_window("Taquin", "Taquin", win_width, win_height);
@@ -51,10 +44,16 @@ int main(int argc, char const *argv[])
 		}
 
 		display_image(image, bloc_size, board);
-	} while (!isFinish(board));
+		victory = isFinish(board);
+	} while (!victory);
+	
 	int elapsed_time = MLV_get_time();
-	display_victory(elapsed_time);
-
+	if (victory) {
+		display_victory(elapsed_time);
+	} else {
+		display_defeat(elapsed_time);
+	}
+	
 	MLV_wait_seconds(3);
 	free(board);
 	MLV_free_image(image);

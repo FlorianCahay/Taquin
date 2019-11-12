@@ -22,3 +22,10 @@ void display_victory(int elapsed_time) {
 	MLV_draw_text(MLV_get_window_width()/3, 530, "Elapsed time: %.3f s", MLV_COLOR_RED, elapsed_time/1000.0);
 	MLV_actualise_window();
 }
+
+/* Affiche le message de défaite. */
+void display_defeat(int elapsed_time) {
+	MLV_draw_text(10, 10, "YOU LOSE !", MLV_COLOR_RED);
+	MLV_draw_text(MLV_get_window_width()/3, 530, "Elapsed time: %.3f s", MLV_COLOR_RED, elapsed_time/1000.0);
+	MLV_actualise_window();
+}

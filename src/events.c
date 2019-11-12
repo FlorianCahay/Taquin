@@ -70,31 +70,39 @@ void swap_case(Plateau *board, int x_case, int y_case, int direction) {
 void shuffle_board(Plateau *board) {
 	int x_empty = 3, y_empty = 3;
 	int i;
-	for (i = 0; i < 10; i++) {
+	for (i = 0; i < 120; i++) {
 		int random = get_random_int(1, 5);
 		switch (random) {
 			case 1:
 				if (y_empty-1 >= 0) {
 					swap_case(board, x_empty, y_empty, random);
 					y_empty--;
+				} else {
+					i--;
 				}
 				break;
 			case 2:
 				if (x_empty-1 >= 0) {
 					swap_case(board, x_empty, y_empty, random);
 					x_empty--;
+				} else {
+					i--;
 				}
 				break;
 			case 3:
 				if (y_empty+1 < NB_COL) {
 					swap_case(board, x_empty, y_empty, random);
 					y_empty++;
+				} else {
+					i--;
 				}
 				break;
 			case 4:
 				if (x_empty+1 < NB_LIG) {
 					swap_case(board, x_empty, y_empty, random);
 					x_empty++;
+				} else {
+					i--;
 				}
 				break;
 			default:
